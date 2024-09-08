@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Before running the npm run dev command run there three commands first:
+Before running the npm run dev command run these three commands first:
 1. npm install
 2. npm install mini-svg-data-uri
 3. npm install tailwindcss-animate
