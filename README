@@ -1,0 +1,310 @@
+DO THIS FIRST
+--------npm install mini-svg-data-uri----------
+--------npm install tailwindcss-animate---------
+
+-----------------------FIRST CONPONENT(SPOTLIGHT)----------------------------------
+
+1.  Go to ACERTINITY --> Press CTRL+K ----> type SPOTLIGHT ---> copy the command and pasrte in terminal
+    (npm i framer-motion clsx tailwind-merge)
+
+2.  Create a folder name lib ---> create a file in it name utils.ts ---> paste the utils code in it
+    (import { ClassValue, clsx } from "clsx";
+    import { twMerge } from "tailwind-merge";
+
+        export function cn(...inputs: ClassValue[]) {
+            return twMerge(clsx(inputs));
+        }
+        )
+        THIS IS A HELPER FUNCTION TO MAKE EVERYTHING WORK TOGETHER WITH TAILWIND
+
+3.  Copy the source code and check the location/create the location mentioned above the code
+    Location: components/ui/Spotlight.tsx
+    Code:import React from "react";
+    import { cn } from "@/lib/utils";
+    type SpotlightProps = {
+    className?: string;
+    fill?: string;
+    };
+
+export const Spotlight = ({ className, fill }: SpotlightProps) => {
+return (
+<svg
+className={cn(
+"animate-spotlight pointer-events-none absolute z-[1] h-[169%] w-[138%] lg:w-[84%] opacity-0",
+className
+)}
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 3787 2842"
+fill="none" >
+<g filter="url(#filter)">
+<ellipse
+cx="1924.71"
+cy="273.501"
+rx="1924.71"
+ry="273.501"
+transform="matrix(-0.822377 -0.568943 -0.568943 0.822377 3631.88 2291.09)"
+fill={fill || "white"}
+fillOpacity="0.21" ></ellipse>
+</g>
+<defs>
+<filter
+          id="filter"
+          x="0.860352"
+          y="0.838989"
+          width="3785.16"
+          height="2840.26"
+          filterUnits="userSpaceOnUse"
+          colorInterpolationFilters="sRGB"
+        >
+<feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
+<feBlend
+            mode="normal"
+            in="SourceGraphic"
+            in2="BackgroundImageFix"
+            result="shape"
+          ></feBlend>
+<feGaussianBlur
+            stdDeviation="151"
+            result="effect1_foregroundBlur_1065_8"
+          ></feGaussianBlur>
+</filter>
+</defs>
+</svg>
+);
+}; 4. Paste this tailwind.css code
+(import type { Config } from "tailwindcss";
+
+const svgToDataUri = require("mini-svg-data-uri");
+
+const colors = require("tailwindcss/colors");
+const {
+default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
+
+const config = {
+darkMode: ["class"],
+content: [
+"./pages/**/*.{ts,tsx}",
+"./components/**/*.{ts,tsx}",
+"./app/**/*.{ts,tsx}",
+"./src/**/*.{ts,tsx}",
+"./data/**/*.{ts,tsx}",
+],
+prefix: "",
+theme: {
+container: {
+center: true,
+padding: "2rem",
+screens: {
+"2xl": "1400px",
+},
+},
+extend: {
+colors: {
+black: {
+DEFAULT: "#000",
+100: "#000319",
+200: "rgba(17, 25, 40, 0.75)",
+300: "rgba(255, 255, 255, 0.125)",
+},
+white: {
+DEFAULT: "#FFF",
+100: "#BEC1DD",
+200: "#C1C2D3",
+},
+blue: {
+"100": "#E4ECFF",
+},
+purple: "#CBACF9",
+border: "hsl(var(--border))",
+input: "hsl(var(--input))",
+ring: "hsl(var(--ring))",
+background: "hsl(var(--background))",
+foreground: "hsl(var(--foreground))",
+primary: {
+DEFAULT: "hsl(var(--primary))",
+foreground: "hsl(var(--primary-foreground))",
+},
+secondary: {
+DEFAULT: "hsl(var(--secondary))",
+foreground: "hsl(var(--secondary-foreground))",
+},
+destructive: {
+DEFAULT: "hsl(var(--destructive))",
+foreground: "hsl(var(--destructive-foreground))",
+},
+muted: {
+DEFAULT: "hsl(var(--muted))",
+foreground: "hsl(var(--muted-foreground))",
+},
+accent: {
+DEFAULT: "hsl(var(--accent))",
+foreground: "hsl(var(--accent-foreground))",
+},
+popover: {
+DEFAULT: "hsl(var(--popover))",
+foreground: "hsl(var(--popover-foreground))",
+},
+card: {
+DEFAULT: "hsl(var(--card))",
+foreground: "hsl(var(--card-foreground))",
+},
+},
+borderRadius: {
+lg: "var(--radius)",
+md: "calc(var(--radius) - 2px)",
+sm: "calc(var(--radius) - 4px)",
+},
+keyframes: {
+"accordion-down": {
+from: { height: "0" },
+to: { height: "var(--radix-accordion-content-height)" },
+},
+"accordion-up": {
+from: { height: "var(--radix-accordion-content-height)" },
+to: { height: "0" },
+},
+spotlight: {
+"0%": {
+opacity: "0",
+transform: "translate(-72%, -62%) scale(0.5)",
+},
+"100%": {
+opacity: "1",
+transform: "translate(-50%,-40%) scale(1)",
+},
+},
+shimmer: {
+from: {
+backgroundPosition: "0 0",
+},
+to: {
+backgroundPosition: "-200% 0",
+},
+},
+moveHorizontal: {
+"0%": {
+transform: "translateX(-50%) translateY(-10%)",
+},
+"50%": {
+transform: "translateX(50%) translateY(10%)",
+},
+"100%": {
+transform: "translateX(-50%) translateY(-10%)",
+},
+},
+moveInCircle: {
+"0%": {
+transform: "rotate(0deg)",
+},
+"50%": {
+transform: "rotate(180deg)",
+},
+"100%": {
+transform: "rotate(360deg)",
+},
+},
+moveVertical: {
+"0%": {
+transform: "translateY(-50%)",
+},
+"50%": {
+transform: "translateY(50%)",
+},
+"100%": {
+transform: "translateY(-50%)",
+},
+},
+scroll: {
+to: {
+transform: "translate(calc(-50% - 0.5rem))",
+},
+},
+},
+animation: {
+"accordion-down": "accordion-down 0.2s ease-out",
+"accordion-up": "accordion-up 0.2s ease-out",
+spotlight: "spotlight 2s ease .75s 1 forwards",
+shimmer: "shimmer 2s linear infinite",
+first: "moveVertical 30s ease infinite",
+second: "moveInCircle 20s reverse infinite",
+third: "moveInCircle 40s linear infinite",
+fourth: "moveHorizontal 40s ease infinite",
+fifth: "moveInCircle 20s ease infinite",
+scroll:
+"scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+},
+},
+},
+plugins: [
+require("tailwindcss-animate"),
+addVariablesForColors,
+function ({ matchUtilities, theme }: any) {
+matchUtilities(
+{
+"bg-grid": (value: any) => ({
+backgroundImage: `url("${svgToDataUri(
+`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100" height="100" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+)}")`,
+}),
+"bg-grid-small": (value: any) => ({
+backgroundImage: `url("${svgToDataUri(
+`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="8" height="8" fill="none" stroke="${value}"><path d="M0 .5H31.5V32"/></svg>`
+)}")`,
+}),
+"bg-dot": (value: any) => ({
+backgroundImage: `url("${svgToDataUri(
+`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="16" height="16" fill="none"><circle fill="${value}" id="pattern-circle" cx="10" cy="10" r="1.6257413380501518"></circle></svg>`
+)}")`,
+}),
+},
+{ values: flattenColorPalette(theme("backgroundColor")), type: "color" }
+);
+},
+],
+} satisfies Config;
+
+function addVariablesForColors({ addBase, theme }: any) {
+let allColors = flattenColorPalette(theme("colors"));
+let newVars = Object.fromEntries(
+Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+);
+
+addBase({
+":root": newVars,
+});
+}
+
+export default config;)
+THIS CODE INSTEAD OF COPYING EVERYTINE FROM THE ACERNITY WE WERE PROVIDED BY THE PERSON WHI MADE THIS PORTFOLIO
+
+--------------------SECOND COMPONENT(Grid and Dot Backgrounds)-----------------------
+
+1. install dependencies -> npm i framer-motion clsx tailwind-merge mini-svg-data-uri
+2. move to code
+   ctrl+c the div part and paste it in the hero.tsx page
+
+AS THE GRID BACKGROUND IS WHITE IN COLOR INSTEAD OF A DARK ONE BECAUSE ACERTINITY SUPPORTS BOTH DARK AND WHITE THEME BUT OUR APPLICATION WILL BE DARK SO WE'LL USE A THEME PROVIDER TO SWITCH IT TO DARK . TO ACHIEVE THIS WE'LL USE A PACKAGE CALLED NEXT-THEMES 1. INSTALL USING (npm i next-themes) 2. Google next-themes and find shadcn/ui (https://ui.shadcn.com/docs/dark-mode/next)
+(a) create components/theme-provider.tsx
+(b) Cpy this code to provider.tsx
+    "use client"
+
+    import \* as React from "react"
+    import { ThemeProvider as NextThemesProvider } from "next-themes"
+    import { type ThemeProviderProps } from "next-themes/dist/types"
+
+    export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+    return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+    }
+
+        (c) Copy this to layout.tsx in body 
+            <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+            </ThemeProvider>
+
+        
