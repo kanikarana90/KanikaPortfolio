@@ -12,6 +12,7 @@ import { GlobeDemo } from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "../ui/MagicButton";
 
+
 export const BentoGrid = ({
   className,
   children,
@@ -32,6 +33,7 @@ export const BentoGrid = ({
   );
 };
 
+
 export const BentoGridItem = ({
   className,
   id,
@@ -41,7 +43,6 @@ export const BentoGridItem = ({
   imgClassName,
   titleClassName,
   spareImg,
-  // onClick, // Include onClick in the parameters
 }: {
   className?: string;
   id: number;
@@ -51,7 +52,6 @@ export const BentoGridItem = ({
   imgClassName?: string;
   titleClassName?: string;
   spareImg?: string;
-  // onClick?: () => void; // Define onClick as a function that does not return anything
 }) => {
   const leftLists = [  "AcernityUI","ReactJS","TailWindCSS"];
   const rightLists = ["HTML", "CSS", "JS"];
@@ -73,7 +73,13 @@ export const BentoGridItem = ({
     setCopied(true);
   };
 
+  const handleGoogleButtonClick = () => {
+    window.location.href = "https://drive.google.com/file/d/1AfZrv_I3kEEPLTvU82W0w89L9EKKPk7b/view?usp=drive_link";
+  };
+
+
   return (
+    
     <div
       className={cn(
         // remove p-4 rounded-3xl dark:bg-black dark:border-white/[0.2] bg-white  border border-transparent, add border border-white/[0.1] overflow-hidden relative
@@ -112,12 +118,7 @@ export const BentoGridItem = ({
             />
           )}
         </div>
-        {id === 6 && (
-          // add background animation , remove the p tag
-          <BackgroundGradientAnimation>
-            {/* <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div> */}
-          </BackgroundGradientAnimation>
-        )}
+     
 
         <div
           className={cn(
@@ -170,29 +171,18 @@ export const BentoGridItem = ({
               </div>
             </div>
           )}
-          {id === 6 && (
-            <div className="mt-5 relative">
-              {/* button border magic from tailwind css buttons  */}
-              {/* add rounded-md h-8 md:h-8, remove rounded-full */}
-              {/* remove focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 */}
-              {/* add handleCopy() for the copy the text */}
-              <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
-                  }`}
-              >
-                {/* <img src="/confetti.gif" alt="confetti" /> */}
-                <Lottie options={defaultOptions} height={200} width={400} />
-              </div>
 
-              <MagicButton
-                title={copied ? "Email is Copied!" : "Copy my email address"}
-                icon={<IoCopyOutline />}
-                position="left"
-                handleClick={handleCopy}
-                otherClasses="!bg-[#161A31]"
-              />
-            </div>
-          )}
+        {id === 4 && (
+        <div className="mt-5 relative">
+          <button
+            onClick={handleGoogleButtonClick}
+            className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-6 rounded-md cursor-pointer transition-colors duration-300 ease-in-out focus:outline-none"
+          >
+            View My Resume
+          </button>
+        </div>
+      )}
+
         </div>
       </div>
     </div>

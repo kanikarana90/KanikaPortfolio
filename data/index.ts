@@ -45,14 +45,15 @@ export const gridItems = [
   },
   {
     id: 4,
-    title: "View my resume",
+    title: "",
     description: "",
     className: "lg:col-span-3 lg:row-span-1 md:col-span-1 md:row-span-1",
-    imgClassName: "h-20 w-20 mt-10 ml-5", 
-    titleClassName: "justify-center md:max-w-full max-w-60 text-center",
+    imgClassName: "h-20 w-20 mt-10 ml-5",
+    titleClassName: "justify-center md:max-w-full max-w-60 text-center cursor-pointer underline text-blue-500",
     img: "resume.png",
     spareImg: "",
-  }
+    // link: "/path-to-resume.pdf", // Specify the URL for the resume here
+  },
 ];
 
 
@@ -62,44 +63,59 @@ export const projects = [
   {
     id: 1,
     title: "Multiple Disease Prediction WebApp",
-    des: "It is a web applications which is able to detect there type of diseases diabetes,parkinsons and heart disease. In this I’ve used three machine learning models made in pythonat jupyter platform and the I integrated them in a website using flask library and made a beautiful hospital website. It also have authentication like signup and login and a chatbot for customer service.",
+    des: "Comprehensive healthcare platform with three machine learning models (heart,parkinsons and diabetes prediction) and chatbot.",
     img: "Proj1.png",
     iconLists: ["html.png", "css.png", "python.png", "ml.png", "js.png"],
     link: "https://github.com/kanikarana90/MultipleDiseasePredictionWebapp",
+    previewLink: "https://drive.google.com/file/d/1SQ9pWxMc0TsjoNZFWr_DUw_IIDKr73IC/view?usp=drive_link",
   },
   {
     id: 2,
     title: "Animated Website",
-    des: "The animated website showcases captivating animations using cutting-edge GSAP technology. With seamless transitions and visually stunning effects, this site offers an engaging and immersive user experience, setting new standards for interactive web design.",
+    des: "Captivating animations with seamless transitions and visually stunning effects.",
     img: "Proj2.png",
-    iconLists: ["html.png", "css.png","js.png","gsap.svg"],
-    link: "https://www.google.co.in/",
+    iconLists: ["html.png", "css.png", "js.png", "gsap.svg"],
+    link: "https://github.com/kanikarana90/AnimatedWebsite",
+    previewLink: "https://drive.google.com/file/d/1nsmEkNh1uSUlPrH58rbXjlqGBaBd6867/view?usp=drive_link",
   },
   {
     id: 3,
     title: "Ecommerce Website",
-    des: "The eCommerce website integrates backend and frontend functionalities, incorporating a secure payment gateway, robust authentication, and interactive user interface. Users can browse, purchase products, and enjoya personalized shopping experience, redefining the standard for online retail.",
+    des: "Secure online shopping experience with payment gateway and authentication.",
     img: "Proj3.png",
-    iconLists: ["/react.png","html.png", "css.png","js.png"],
-    link: "https://www.google.co.in/",
+    iconLists: ["/react.png", "html.png", "css.png", "js.png"],
+    link: "",
+    previewLink: "https://drive.google.com/file/d/13nhB2lvdTjwai1t62NkHWNA7Ebp_Sttz/view?usp=drive_link",
   },
   {
     id: 4,
-    title: "Netflix Clone",
-    des: "Recreated the Netflix website",
+    title: "The Netflix clone",
+    des: "Responsive interface with dynamic content and smooth navigation.",
     img: "Proj4.png",
-    iconLists: ["html.png", "css.png","js.png"],
-    link: "https://www.google.co.in/",
+    iconLists: ["html.png", "css.png", "js.png"],
+    link: "https://github.com/kanikarana90/NetflixClone",
+    previewLink: "https://drive.google.com/file/d/1ZOB_ae4Zq_Bkoxaze0R11gxtIslLCmDQ/view?usp=drive_link",
   },
   {
     id: 5,
     title: "Edusity",
-    des: "ELearning Platform",
+    des: " E-learning platform with React.js and email-based customer support.",
     img: "Proj5.png",
-    iconLists: ["/react.png","html.png", "css.png","js.png"],
-    link: "https://www.google.co.in/",
+    iconLists: ["/react.png", "html.png", "css.png", "js.png"],
+    link: "https://github.com/kanikarana90/Edusity",
+    previewLink: "https://drive.google.com/file/d/18N0Z4IfmobLbs6DQwIGHeziv5dhe1sCZ/view?usp=drive_link",
+  },
+  {
+    id: 6,
+    title: "The Witch Run",
+    des: "Obstacle-based action game built with HTML, CSS, and JavaScript.",
+    img: "Proj6.png",
+    iconLists: ["html.png", "css.png", "js.png"],
+    link: "https://github.com/kanikarana90/TheWitchRun",
+    previewLink: "https://drive.google.com/file/d/1D4zFVkB8H4quTQDY4DPICZhGvZ2b2MKA/view?usp=drive_link",
   },
 ];
+
 
 export const testimonials = [
   {
@@ -181,16 +197,26 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
-    link: "www.google.com",
+    link: "https://github.com/kanikarana90",
   },
   {
     id: 2,
-    img: "/twit.svg",
-    link: "www.google.com",
+    img: "/gmail.svg",
+    link: "mailto:ranakanika044@gmail.com",
   },
   {
     id: 3,
     img: "/link.svg",
-    link: "www.google.com",
+    link: "https://www.linkedin.com/in/kanika-rana-a19a7824b/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
   },
+  {
+    id: 4,
+    img: "/leet.svg",
+    link: "https://leetcode.com/u/kanika_98/",
+  },
+  // {
+  //   id: 5,
+  //   img: "/podAI.svg",
+  //   link: "www.google.com",
+  // },
 ];
