@@ -41,7 +41,7 @@ export const BentoGridItem = ({
   imgClassName,
   titleClassName,
   spareImg,
-  onClick, // Include onClick in the parameters
+  // onClick, // Include onClick in the parameters
 }: {
   className?: string;
   id: number;
@@ -51,7 +51,7 @@ export const BentoGridItem = ({
   imgClassName?: string;
   titleClassName?: string;
   spareImg?: string;
-  onClick?: () => void; // Define onClick as a function that does not return anything
+  // onClick?: () => void; // Define onClick as a function that does not return anything
 }) => {
   const leftLists = [  "AcernityUI","ReactJS","TailWindCSS"];
   const rightLists = ["HTML", "CSS", "JS"];
